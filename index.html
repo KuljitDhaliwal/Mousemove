@@ -5,33 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            width: 100%;
-        }
-        #btn{
-            display:block;
-            padding: 12px;
-            background-color: #e86629;
-            border: 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgb(0,0,0,0.2);
-            margin-inline: auto;
-            cursor: pointer;
-        }
+#torch{
+  width: 30px;
+  height: 30px;
+background: radial-gradient(circle at center, #ffffe0, #ffcc00, #cc6600, #000000);
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 0.1s ease, left 0.1s ease, top 0.1s ease;
+}
     </style>
 </head>
 <body>
-    <button id="btn">Click Me</button>
+    <div id="torch"></div>
     <script>
-        const btn = document.getElementById("btn");
-        btn.addEventListener("click", e => {
-            console.log("ClientX ", e.clientX);
-            console.log("ClientX\Y ", e.clientY);
-            })
+document.addEventListener("mousemove", e =>{
+  const torch = document.getElementById("torch");
+  const cordX = e.clientX;
+  const cordY = e.clientY;
+  torch.style.left = `${cordX}px`;
+  torch.style.top = `${cordY}px`;
+  
+})
     </script>
 </body>
 
